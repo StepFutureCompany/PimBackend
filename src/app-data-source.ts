@@ -6,11 +6,11 @@ import { Desconto } from "./models/Desconto";
 
 const myDataSource = new DataSource({
     type: "postgres",
-    "host": "berry.db.elephantsql.com",
+    "host": "localhost",
     port: 5432,
-    username: "zvgodfxg",
-    "password": "kR66oMes2dtQ8_n9xvqC0cDvTTcdTlCP",
-    database: "zvgodfxg",
+    username: "postgres",
+    password: "postgres",
+    database: "pim_database",
     entities: [Funcionario, Holerite, Provento, Desconto],
     logging: true,
     synchronize: false,

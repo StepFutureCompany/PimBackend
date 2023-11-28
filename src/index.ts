@@ -1,13 +1,18 @@
 import "reflect-metadata";
 import myDataSource from "./app-data-source";
 import express from "express";
-
-import { funcionarioRoutes } from "./routes/FuncionarioRoutes";
-import { holeriteRoutes } from "./routes/HoleriteRoutes";
-import { proventoRoutes } from "./routes/ProventoRoutes";
-import { descontoRoutes } from "./routes/DescontoRoutes";
-
 import cors from "cors";
+
+import  funcionarioRoutes  from "./routes/FuncionarioRoutes";
+import  holeriteRoutes  from "./routes/HoleriteRoutes";
+import  proventoRoutes  from "./routes/ProventoRoutes";
+import  descontoRoutes from "./routes/DescontoRoutes";
+
+const corsOptions = {
+  origin: "http://localhost:3000",
+  optionsSuccessStatus: 200,
+  methods: "GET, POST, PATCH, DELETE",
+};
 
 myDataSource
   .initialize()
@@ -19,19 +24,18 @@ myDataSource
   });
 
 const app = express();
-app.use(express.json());
-app.use(cors());
 
-funcionarioRoutes(app);
-holeriteRoutes(app);
-descontoRoutes(app);
-proventoRoutes(app);
-/*
-app.get("/Funcionarios", async function (req: Request, res: Response) {
-  const funcionarios = await myDataSource.getRepository(Funcionario).find();
-  res.json(funcionarios);
+app.use(express.json());
+app.use(cors(corsOptions));
+
+app.use(funcionarioRoutes);
+app.use(holeriteRoutes);
+app.use(descontoRoutes);
+app.use(proventoRoutes);
+
+app.get('/', (req, res) => {
+  res.send('Hello World!')
 });
-*/
 
 app.listen(3333, () => {
   console.log("Servidor Backend em execução...");
