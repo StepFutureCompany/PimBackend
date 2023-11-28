@@ -5,7 +5,7 @@ import {
   BaseEntity
 } from "typeorm";
 
-@Entity('funcionariotest', { schema: 'stepfuturetest' })
+@Entity('funcionario')
 export class Funcionario extends BaseEntity {
 
   @PrimaryGeneratedColumn()

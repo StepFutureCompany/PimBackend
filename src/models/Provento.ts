@@ -7,7 +7,7 @@ import {
 } from "typeorm";
 import { Funcionario } from "./Funcionario";
 
-@Entity('proventotest', { schema: 'stepfuturetest' })
+@Entity('provento')
 export class Provento {
 
   @PrimaryGeneratedColumn()

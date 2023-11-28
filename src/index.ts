@@ -7,11 +7,12 @@ import  funcionarioRoutes  from "./routes/FuncionarioRoutes";
 import  holeriteRoutes  from "./routes/HoleriteRoutes";
 import  proventoRoutes  from "./routes/ProventoRoutes";
 import  descontoRoutes from "./routes/DescontoRoutes";
+import  loginRoutes from "./routes/LoginRoutes";
 
 const corsOptions = {
   origin: "http://localhost:3000",
   optionsSuccessStatus: 200,
-  methods: "GET, POST, PATCH, DELETE",
+  methods: "GET, POST, PUT, DELETE",
 };
 
 myDataSource
@@ -27,11 +28,11 @@ const app = express();
 
 app.use(express.json());
 app.use(cors(corsOptions));
-
 app.use(funcionarioRoutes);
 app.use(holeriteRoutes);
 app.use(descontoRoutes);
 app.use(proventoRoutes);
+app.use(loginRoutes);
 
 app.get('/', (req, res) => {
   res.send('Hello World!')

@@ -3,17 +3,18 @@ import { Funcionario } from "./models/Funcionario";
 import { Holerite } from "./models/Holerite";
 import { Provento } from "./models/Provento";
 import { Desconto } from "./models/Desconto";
+import { User } from "./models/User";
 
 const myDataSource = new DataSource({
     type: "postgres",
-    "host": "localhost",
+    "host": "berry.db.elephantsql.com",
     port: 5432,
-    username: "postgres",
-    password: "postgres",
-    database: "pim_database",
-    entities: [Funcionario, Holerite, Provento, Desconto],
+    "username": "zvgodfxg",
+    "password": "kR66oMes2dtQ8_n9xvqC0cDvTTcdTlCP",
+    "database": "zvgodfxg",
+    entities: [Funcionario, Holerite, Provento, Desconto, User],
     logging: true,
-    synchronize: false,
+    synchronize: true,
 })
 
 export default myDataSource

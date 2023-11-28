@@ -7,7 +7,7 @@ import {
 } from "typeorm";
 import { Funcionario } from "./Funcionario";
 
-@Entity('holeritetest', { schema: 'stepfuturetest' })
+@Entity('holerite')
 export class Holerite {
 
   @PrimaryGeneratedColumn()
